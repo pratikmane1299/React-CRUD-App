@@ -7,7 +7,7 @@ const Home = () => (
     <hr className="my-4" />
     <p className="lead">This is simple CRUD app made with React.</p>
     <p className="lead">
-      <Link className="btn btn-primary btn-lg" href="#" role="button">View Products</Link>
+      <Link to="/products" className="btn btn-primary btn-lg" href="#" role="button">View Products</Link>
     </p>
   </div>
 );

@@ -5,6 +5,7 @@ import './App.css';
 
 import Home from './views/Home';
 import Header from './components/Header';
+import Products from './views/Products';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <Header />
       <main className="container">
         <Switch>
-          <Route path="/" component={Home} />
+          <Route exact path="/" component={Home} />
+          <Route path="/products" component={Products} />
         </Switch>
       </main>
     </div>
