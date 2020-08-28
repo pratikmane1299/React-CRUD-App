@@ -6,6 +6,7 @@ import './App.css';
 import Home from './views/Home';
 import Header from './components/Header';
 import Products from './views/Products';
+import AddProduct from './views/AddProduct';
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       <main className="container">
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/products" component={Products} />
+          <Route exact path="/products" component={Products} />
+          <Route path="/products/add" component={AddProduct} />
         </Switch>
       </main>
     </div>

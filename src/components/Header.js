@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 const Header = () => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <div className="container">
-      <a className="navbar-brand" href="#">
+      <Link className="navbar-brand" to="/">
         Products Store
-      </a>
+      </Link>
       <div>
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            <Link className="nav-link" href="#">Add New Product</Link>
+            <Link to="/products/add" className="nav-link">Add New Product</Link>
           </li>
         </ul>
       </div>
