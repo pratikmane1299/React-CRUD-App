@@ -18,11 +18,16 @@ class ProductForm extends React.Component {
   }
 
   componentDidMount() {
+    const { product } = this.props;
+
+    if (product) {
+      this.setState({product});
+    }
+
     this.setState({
       errors: this.props.errors,
       isAdding: this.props.isAdding,
-      isEditing: this.props.isEditing,
-      product: this.props.product
+      isEditing: this.props.isEditing
     });
   }
 
