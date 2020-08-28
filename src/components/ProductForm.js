@@ -14,12 +14,15 @@ class ProductForm extends React.Component {
     product: initialState,
     errors: {},
     isAdding: false,
+    isEditing: false,
   }
 
   componentDidMount() {
     this.setState({
       errors: this.props.errors,
       isAdding: this.props.isAdding,
+      isEditing: this.props.isEditing,
+      product: this.props.product
     });
   }
 
@@ -29,6 +32,9 @@ class ProductForm extends React.Component {
     } 
     if (prevProps.isAdding !== this.props.isAdding) {
       this.setState({ isAdding: this.props.isAdding });
+    }
+    if (prevProps.isEditing !== this.props.isEditing) {
+      this.setState({ isEditing: this.props.isEditing });
     }
   }
 
@@ -53,7 +59,7 @@ class ProductForm extends React.Component {
     if (name.trim() === '') errors.name = 'Name is required';
     if (description.trim() === '') errors.description = 'Description is required';
     if (isNaN(price) && Number(price) <= 0) errors.price = 'Price should be greater than 0';
-    if (price.trim() === '') errors.price = 'Price is required';
+    if (price === '') errors.price = 'Price is required';
     if (isNaN(stock) && Number(stock) <= 0) errors.stock = 'Stock should be greater than or equal to 1';
     if (imageUrl.trim() === '') errors.imageUrl = 'Image Url is required';
 
@@ -74,7 +80,7 @@ class ProductForm extends React.Component {
   }
 
   render() {
-    const { errors, isAdding, product: { name, description, price, stock, imageUrl } } = this.state;
+    const { errors, isAdding, isEditing, product: { name, description, price, stock, imageUrl } } = this.state;
     const { mode } = this.props;
     return (
       <div className="card w-50 mx-auto">
@@ -142,7 +148,7 @@ class ProductForm extends React.Component {
               {errors.imageUrl && <span className="invalid-feedback">{errors.imageUrl}</span>}
             </div>
             <button type="submit" className="btn btn-info btn-block">
-              {mode === 'add' ? !isAdding ? 'Add Product' : 'Adding Product' : 'Edit Product'}
+              {mode === 'add' ? !isAdding ? 'Add Product' : 'Adding Product' : !isEditing ? 'Update Product' : 'Updating Product...'}
             </button>
           </form>
         </div>

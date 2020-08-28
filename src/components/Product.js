@@ -9,7 +9,7 @@ const Product = ({ product }) => (
       <p className="card-text">{product.description}</p>
       <p className="card-text">Rs {product.price}</p>
       <div className="d-flex justify-content-around">
-        <Link to={`/products/${product.id}/edit`} className="btn btn-info">Edit</Link>
+        <Link to={`/products/${product._id}/edit`} className="btn btn-info">Edit</Link>
         <button className="btn btn-danger">Delete</button>
       </div>
     </div>
