@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getAllProducts } from '../services/Products';
+import { getAllProducts, deleteProduct } from '../services/Products';
 import Product from '../components/Product';
 
 class Products extends React.Component {
@@ -19,6 +19,18 @@ class Products extends React.Component {
       });
   }
 
+  deleteProduct = (id) => {
+    deleteProduct(id)
+      .then(res => {
+        return getAllProducts();
+      })
+      .then(products => {
+        this.setState({
+          products
+        });
+      });
+  }
+
   render() {
     const { isLoading, products } = this.state;
     return (
@@ -27,7 +39,11 @@ class Products extends React.Component {
           <span>Loading</span> :
           <div className="row">
             {products.map(product => (
-              <Product key={product._id} product={product} />
+              <Product 
+                key={product._id} 
+                product={product} 
+                deleteProduct={this.deleteProduct} 
+              />
             ))}
           </div>
         }

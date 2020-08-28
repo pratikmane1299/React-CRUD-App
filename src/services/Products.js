@@ -31,3 +31,13 @@ export function updateProduct(product, id) {
   })
   .then(res => res.json());
 }
+
+export function deleteProduct(id) {
+  return fetch(`${API_URL}/${id}`, {
+    method: 'Delete',
+    headers: {
+      'content-type': 'application/json'
+    }
+  })
+  .then(res => res.json());
+}
