@@ -6,8 +6,8 @@ const Product = ({ product, deleteProduct }) => (
     <div className="card">
       <img className="card-img-top" src={product.imageUrl} alt={product.name} />
       <div className="card-body">
-        <h5 className="card-title">{product.name}</h5>
-        <p className="card-text">{product.description}</p>
+        <Link className="h5 text-dark" to={`/products/${product._id}`}>{product.name}</Link>
+        {/* <p className="card-text">{product.description}</p> */}
         <p className="card-text">Rs {product.price}</p>
       </div>
       <div className="card-footer d-flex justify-content-around">

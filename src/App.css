@@ -5,3 +5,12 @@ img {
 .col-md-3 {
     padding: 5px;
 }
+
+.product-details-image {
+    width: 100%;
+    height: 400px;
+}
+
+.product-details-desc {
+    font-size: 1.3rem;
+}

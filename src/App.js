@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Products from './views/Products';
 import AddProduct from './views/AddProduct';
 import EditProduct from './views/EditProduct';
+import ProductDetails from './views/ProductDetails';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/products" component={Products} />
           <Route path="/products/add" component={AddProduct} />
+          <Route exact path="/products/:id" component={ProductDetails} />
           <Route path="/products/:id/edit" component={EditProduct} />
         </Switch>
       </main>
