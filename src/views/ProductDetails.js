@@ -8,6 +8,7 @@ export default class ProductDetails extends React.Component {
   }
 
   componentDidMount() {
+    this.setState({ isLoading: true });
     const { id } = this.props.match.params;
     getProductById(id)
       .then(res => {
